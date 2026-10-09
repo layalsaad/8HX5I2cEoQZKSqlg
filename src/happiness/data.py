@@ -1,5 +1,9 @@
+"""Loading and validating survey data."""
+
 from pathlib import Path
+
 import pandas as pd
+
 from happiness.config import DATA_PATH, FEATURES, MAX_ANSWER, MIN_ANSWER, TARGET
 
 

@@ -650,6 +650,7 @@ dev = [
     { name = "matplotlib" },
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scipy" },
     { name = "seaborn" },
 ]
 
@@ -666,6 +667,7 @@ dev = [
     { name = "matplotlib", specifier = ">=3.9" },
     { name = "pytest", specifier = ">=8.3" },
     { name = "ruff", specifier = ">=0.6" },
+    { name = "scipy", specifier = ">=1.13" },
     { name = "seaborn", specifier = ">=0.13" },
 ]
 

@@ -21,21 +21,24 @@ six-question delivery survey, and identify which questions matter most.
 ## Project structure
 
 ```
-data/raw/            # input CSV
-notebooks/           # EDA, modeling, feature selection
-src/happiness/       # config, data loading/validation, modeling
-tests/               # unit tests
+data/raw/            # input CSV (not versioned, see Setup)
+notebooks/           # analysis narrative: EDA, modeling, feature selection
+reports/figures/     # charts saved by the notebooks
+src/happiness/       # reusable package: config, data loading/validation, modeling
+tests/               # unit tests (use synthetic data, no CSV needed)
 ```
 
 ## Setup
 
-Requires [uv](https://docs.astral.sh/uv/) (`brew install uv` on macOS).
+Requires [uv](https://docs.astral.sh/uv/), which also installs the right Python version.
 
 ```bash
-uv sync                      # creates .venv with Python 3.12 and all dependencies
+curl -LsSf https://astral.sh/uv/install.sh | sh    # install uv (or: brew install uv)
+uv sync                                            # create .venv with Python 3.12 + dependencies
 ```
 
-Place the dataset at `data/raw/ACME-HappinessSurvey2020.csv`.
+Place the dataset at `data/raw/ACME-HappinessSurvey2020.csv`. The data is not committed to the
+repository.
 
 ## Development
 

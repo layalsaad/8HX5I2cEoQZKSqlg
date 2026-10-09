@@ -1,7 +1,10 @@
+"""Project-wide constants: file locations and the survey schema."""
+
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = PROJECT_ROOT / "data" / "raw" / "ACME-HappinessSurvey2020.csv"
+FIGURES_DIR = PROJECT_ROOT / "reports" / "figures"
 
 TARGET = "Y"
 FEATURES = ["X1", "X2", "X3", "X4", "X5", "X6"]

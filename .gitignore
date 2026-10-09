@@ -20,6 +20,3 @@ models/
 .DS_Store
 .idea/
 .vscode/
-
-# tests
-tests
