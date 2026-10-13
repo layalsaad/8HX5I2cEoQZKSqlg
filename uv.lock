@@ -639,9 +639,11 @@ name = "happiness"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "joblib" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "scikit-learn" },
+    { name = "scipy" },
 ]
 
 [package.dev-dependencies]
@@ -650,15 +652,16 @@ dev = [
     { name = "matplotlib" },
     { name = "pytest" },
     { name = "ruff" },
-    { name = "scipy" },
     { name = "seaborn" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "joblib", specifier = ">=1.4" },
     { name = "numpy", specifier = ">=2.0" },
     { name = "pandas", specifier = ">=2.2" },
     { name = "scikit-learn", specifier = ">=1.5" },
+    { name = "scipy", specifier = ">=1.13" },
 ]
 
 [package.metadata.requires-dev]
@@ -667,7 +670,6 @@ dev = [
     { name = "matplotlib", specifier = ">=3.9" },
     { name = "pytest", specifier = ">=8.3" },
     { name = "ruff", specifier = ">=0.6" },
-    { name = "scipy", specifier = ">=1.13" },
     { name = "seaborn", specifier = ">=0.13" },
 ]
 

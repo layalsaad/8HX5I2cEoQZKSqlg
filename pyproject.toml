@@ -5,10 +5,16 @@ description = "Predict customer happiness from delivery survey answers."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "joblib>=1.4",
     "numpy>=2.0",
     "pandas>=2.2",
     "scikit-learn>=1.5",
+    "scipy>=1.13",
 ]
+
+[project.scripts]
+happiness-train = "happiness.train:main"
+happiness-predict = "happiness.predict:main"
 
 [dependency-groups]
 dev = [
@@ -16,7 +22,6 @@ dev = [
     "matplotlib>=3.9",
     "pytest>=8.3",
     "ruff>=0.6",
-    "scipy>=1.13",
     "seaborn>=0.13",
 ]
 

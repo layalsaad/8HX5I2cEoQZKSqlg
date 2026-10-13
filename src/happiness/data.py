@@ -19,18 +19,22 @@ def load_data(path: Path | str = DATA_PATH) -> pd.DataFrame:
     return validate(pd.read_csv(path, encoding="utf-8-sig"))
 
 
-def validate(df: pd.DataFrame, require_target: bool = True) -> pd.DataFrame:
+def validate(
+    df: pd.DataFrame, require_target: bool = True, features: list[str] = FEATURES
+) -> pd.DataFrame:
     """Check schema and value ranges of survey data.
 
-    Returns a copy restricted to the feature columns, plus the target when present.
-    Raises ValueError listing every problem found.
+    `features` lists the questions that must be present; a model that uses fewer questions
+    can score surveys that no longer ask the others. Returns a copy restricted to those
+    columns, plus the target when present. Raises ValueError listing every problem found.
     """
-    required = [*FEATURES, TARGET] if require_target else FEATURES
+    features = list(features)
+    required = [*features, TARGET] if require_target else features
     missing = [col for col in required if col not in df.columns]
     if missing:
         raise ValueError(f"Missing required columns: {missing}")
 
-    columns = [*FEATURES, TARGET] if TARGET in df.columns else FEATURES
+    columns = [*features, TARGET] if TARGET in df.columns else features
     df = df[columns].copy()
 
     errors = []

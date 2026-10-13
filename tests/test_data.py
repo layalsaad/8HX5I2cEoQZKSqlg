@@ -41,6 +41,12 @@ def test_validate_target_optional_for_prediction(survey_df):
     assert list(df.columns) == FEATURES
 
 
+def test_validate_checks_only_the_requested_questions(survey_df):
+    df = validate(survey_df[["X1", "X5"]], require_target=False, features=["X1", "X5"])
+
+    assert list(df.columns) == ["X1", "X5"]
+
+
 def test_validate_keeps_target_when_present_and_not_required(survey_df):
     assert TARGET in validate(survey_df, require_target=False).columns
 
